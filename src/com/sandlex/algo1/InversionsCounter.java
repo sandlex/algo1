@@ -44,19 +44,16 @@ public class InversionsCounter {
     }
 
     private static List<Integer> merge(List<Integer> a, List<Integer> b) {
-        List<Integer> res = new ArrayList<Integer>();
-        int k = a.size() + b.size();
+        List<Integer> res = new ArrayList<>();
         int i = 0, j = 0;
 
-        for (int c = 0; c < k; c++) {
-            if (i >= a.size() || j >= b.size()) {
-                if (i >= a.size()) {
-                    res.add(b.get(j));
-                    j++;
-                } else {
-                    res.add(a.get(i));
-                    i++;
-                }
+        while (i < a.size() || j < b.size()) {
+            if (i == a.size()) {
+                res.add(b.get(j));
+                j++;
+            } else if (j == b.size()) {
+                res.add(a.get(i));
+                i++;
             } else if (a.get(i) < b.get(j)) {
                 res.add(a.get(i));
                 i++;
@@ -66,7 +63,6 @@ public class InversionsCounter {
                 inversions += (a.size() - i);
             }
         }
-
         return res;
     }
 }
