@@ -20,12 +20,12 @@ import java.util.stream.Stream;
  *
  * author: Alexey Peskov
  */
-public class InversionsCounter {
+public class MergeSorter {
 
     private static Long inversions;
 
     public static void main(String[] args) throws IOException {
-        Stream<String> stream = Files.lines(Paths.get("/Users/sandlex/dev/algo1/resources/com/sandlex/algo1/_bcb5c6658381416d19b01bfc1d3993b5_IntegerArray.txt"));
+        Stream<String> stream = Files.lines(Paths.get("/Users/sandlex/dev/algo1/resources/com/sandlex/algo1/MergeSort_IntegerArray.txt"));
         List<Integer> integers = new ArrayList<>();
         stream.mapToInt(Integer::parseInt).forEach(integers::add);
         inversions = 0l;
